@@ -1,0 +1,88 @@
+﻿@model EditInstructorFormViewModel
+
+@{
+    ViewData["Title"] = "Edit Instructor";
+}
+
+<div class="container mt-5 d-flex justify-content-start">
+    <div class="col-sm-6">
+
+        <h2 class="fs-3 mb-4">
+            <i class="bi bi-pencil-square me-2"></i> @ViewData["Title"]
+        </h2>
+
+        <form asp-controller="Instructor" asp-action="Edit" method="post">
+
+            <!-- Hidden Id -->
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Name -->
+            <div class="mb-4 row">
+                <div class="col-md-8">
+                    <label asp-for="Name" class="form-label fw-bold"></label>
+                    <input asp-for="Name" type="text" class="form-control form-control-lg" placeholder="Instructor Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="mb-4 row">
+                <div class="col-md-8">
+                    <label asp-for="Address" class="form-label fw-bold"></label>
+                    <input asp-for="Address" type="text" class="form-control form-control-lg" placeholder="Address" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Salary -->
+            <div class="mb-4 row">
+                <div class="col-md-8">
+                    <label asp-for="Salary" class="form-label fw-bold"></label>
+                    <input asp-for="Salary" type="number" class="form-control form-control-lg" placeholder="Salary" />
+                    <span asp-validation-for="Salary" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Department Dropdown -->
+            <div class="mb-4 row">
+                <div class="col-md-8">
+                    <label asp-for="SelectedDepartment" class="form-label fw-bold"></label>
+                    <select asp-for="SelectedDepartment" asp-items="Model.Departments" class="form-control form-control-lg">
+                        <option value="">Select Department</option>
+                    </select>
+                    <span asp-validation-for="SelectedDepartment" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Course Dropdown -->
+            <div class="mb-4 row">
+                <div class="col-md-8">
+                    <label asp-for="SelectedCourse" class="form-label fw-bold"></label>
+                    <select asp-for="SelectedCourse" asp-items="Model.Courses" class="form-control form-control-lg">
+                        <option value="">Select Course</option>
+                    </select>
+                    <span asp-validation-for="SelectedCourse" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="row">
+                <div class="col-md-8 d-flex gap-2">
+                    <a asp-action="Index" asp-controller="Instructor" class="btn btn-secondary btn-lg">
+                        <i class="bi bi-arrow-left-circle me-1"></i> Back
+                    </a>
+                    <button type="submit" class="btn btn-info btn-lg">
+                        <i class="bi bi-plus"></i> Save
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

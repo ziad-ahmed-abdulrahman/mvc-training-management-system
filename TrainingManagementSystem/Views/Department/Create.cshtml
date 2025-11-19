@@ -1,0 +1,57 @@
+﻿@model CreateDepartmentFormViewModel
+
+@{
+    ViewData["Title"] = "Add Department";
+    var nameValue = Model?.Name;
+    var managerValue = Model?.ManagerName;
+}
+
+<div class="container mt-5 d-flex justify-content-start">
+    <div class="col-sm-6">
+
+        <h2 class="fs-3 mb-4">
+            <i class="bi bi-plus-circle me-2"></i> @ViewData["Title"]
+        </h2>
+
+        <form asp-controller="Department" asp-action="Create" method="post">
+            <!-- Name -->
+            <div class="mb-4 row">
+                <div class="col-md-6">
+                    <label asp-for="Name" class="form-label fw-bold"></label>
+                    <input asp-for="Name" type="text" class="form-control form-control-lg"
+                           value="@(nameValue ?? "")" placeholder="@(nameValue == null ? "Name" : "")">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Manager Name -->
+            <div class="mb-4 row">
+                <div class="col-md-6">
+                    <label asp-for="ManagerName" class="form-label fw-bold"></label>
+                    <input asp-for="ManagerName" type="text" class="form-control form-control-lg"
+                           value="@(managerValue ?? "")" placeholder="@(managerValue == null ? "Manager Name" : "")">
+                    <span asp-validation-for="ManagerName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="row">
+                <div class="col-md-6 d-flex gap-2">
+                    <a asp-action="Index" asp-controller="Department" class="btn btn-secondary btn-lg">
+                        <i class="bi bi-arrow-left-circle me-1"></i> Back
+                    </a>
+                    <button type="submit" class="btn btn-info btn-lg">
+                        <i class="bi bi-plus"></i> Save
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

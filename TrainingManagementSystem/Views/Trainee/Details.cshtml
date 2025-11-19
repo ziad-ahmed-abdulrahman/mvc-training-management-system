@@ -1,0 +1,135 @@
+﻿@model TrainingManagementSystem.ViewModels.TraineeViewModels.TraineeWithDetails
+
+@{
+    ViewData["Title"] = "Trainee Details";
+}
+
+<div class="container mt-5">
+    <h2 class="text-primary mb-4">
+        <i class="bi bi-person-vcard me-2"></i> @ViewData["Title"]
+    </h2>
+
+    <!-- Trainee Info -->
+    <div class="card shadow-lg border-0 mb-4">
+        <div class="card-body">
+            <h4 class="text-secondary mb-3">
+                <i class="bi bi-person-lines-fill me-2"></i> Trainee Information
+            </h4>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Trainee Name</label>
+                    <input type="text" class="form-control form-control-lg" value="@Model.Name" readonly />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Trainee ID</label>
+                    <input type="text" class="form-control form-control-lg" value="@Model.Id" readonly />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Address</label>
+                    <input type="text" class="form-control form-control-lg" value="@Model.Address" readonly />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Academic Year</label>
+                    <input type="text" class="form-control form-control-lg" value="@Model.Grade" readonly />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Department Name</label>
+                    <input type="text" class="form-control form-control-lg" value="@Model.DepartmentName" readonly />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Department ID</label>
+                    <input type="text" class="form-control form-control-lg" value="@Model.SelectedDepartment" readonly />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Results -->
+    <div class="card shadow-lg border-0 mb-4">
+        <div class="card-body">
+            <h4 class="text-secondary mb-3">
+                <i class="bi bi-bar-chart-fill me-2 text-primary"></i> Courses & Results
+            </h4>
+
+            @if (Model.CrsResults != null && Model.CrsResults.Any())
+            {
+                <table class="table table-hover text-center align-middle">
+                    <thead style="background-color:#0d6efd; color:white;">
+                        <tr>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                            <th>Course Degree</th>
+                            <th>Min Degree</th>
+                            <th>Trainee Degree</th>
+                            <th>Status</th>
+                            <th>Date Completed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var result in Model.CrsResults)
+                        {
+                            string statusText;
+                            string statusColor;
+
+                            if (result.TraineeDegree == null)
+                            {
+                                statusText = "Not Examined";
+                                statusColor = "text-muted";
+                            }
+                            else if (result.IsPassed == true)
+                            {
+                                statusText = "Passed";
+                                statusColor = "text-success fw-bold";
+                            }
+                            else
+                            {
+                                statusText = "Failed";
+                                statusColor = "text-danger fw-bold";
+                            }
+
+                            <tr>
+                                <td>@result.CourseId</td>
+                                <td>@result.CourseName</td>
+                                <td>@result.CourseDegree</td>
+                                <td>@result.CourseMinDegree</td>
+                                <td>@(result.TraineeDegree?.ToString() ?? "-")</td>
+                                <td class="@statusColor">@statusText</td>
+                                <td>
+                                    @if (result.DateCompleted != null)
+                                    {
+                                        @result.DateCompleted?.ToString("dd/MM/yyyy")
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw("<span class='text-muted'>-</span>")
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="text-muted">No course results found for this trainee.</p>
+            }
+        </div>
+    </div>
+
+
+
+    <!-- Back Button -->
+    <div class="mt-4">
+        <a asp-action="Index" asp-controller="Trainee" class="btn btn-secondary btn-lg">
+            <i class="bi bi-arrow-left-circle me-1"></i> Back to Trainees
+        </a>
+    </div>
+</div>
+
+

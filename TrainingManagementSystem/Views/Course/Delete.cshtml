@@ -1,0 +1,16 @@
+﻿@model int
+@{
+    ViewBag.Title = "Confirm Delete Course";
+}
+
+<h2>Confirm Delete</h2>
+
+<div class="alert alert-warning">
+    <strong>Warning!</strong> Are you sure you want to delete this course (ID: @Model)?
+</div>
+
+<form asp-action="ConfirmDelete" asp-controller="Course" method="post">
+    <input type="hidden" name="id" value="@Model" />
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a asp-action="Index" asp-controller="Course" class="btn btn-secondary">Cancel</a>
+</form>

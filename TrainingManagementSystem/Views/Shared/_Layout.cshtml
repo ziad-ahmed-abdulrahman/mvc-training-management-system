@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Training Management System | @ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min (2).css" />
+    <link rel="stylesheet" href="~/bootstrap-icons/font/bootstrap-icons.min.css" />
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TrainingManagementSystem.styles.css" asp-append-version="true" />
+
+    <style>
+        /* ===== Navbar Style ===== */
+        .navbar {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+            .navbar-brand:hover {
+                color: #e0e0e0 !important;
+            }
+
+        .nav-link {
+            color: #f8f9fa !important;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 8px;
+            padding: 8px 14px;
+        }
+
+            .nav-link:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+                color: #ffffff !important;
+            }
+
+        .navbar-toggler {
+            border-color: #fff;
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        /* ===== Page Background ===== */
+        body {
+            background: linear-gradient(180deg, #eef2ff, #ffffff);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        /* ===== Main Container ===== */
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+        }
+
+        /* ===== Headings ===== */
+        h1, h2, h3, h4 {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        /* ===== Buttons ===== */
+        .btn-primary {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background: linear-gradient(90deg, #2563eb, #7c3aed);
+            }
+
+        /* ===== Table Styling ===== */
+        table.table {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+            table.table thead {
+                background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+                color: white;
+            }
+
+            table.table tbody tr:hover {
+                background-color: #f1f5ff;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-mortarboard-fill me-1"></i> Training Management System
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                  
+                        <partial name="_LoginPartial" />
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

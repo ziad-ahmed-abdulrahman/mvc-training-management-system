@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Confirm Logout";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100" style="background-color: rgba(0,0,0,0.05);">
+    <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%; border-radius: 15px; background: linear-gradient(135deg, #6fa8dc, #3d7ea6); color: white;">
+        <div class="text-center">
+            <i class="bi bi-box-arrow-right display-1 mb-3"></i>
+            <h3 class="mb-3 w-100 p-2 text-light">Log Out?</h3>
+            <p>Are you sure you want to log out? You will need to log in again to continue using your account.</p>
+            <form asp-action="ConfirmLogout" method="post" class="d-flex justify-content-center gap-2 mt-3">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-light btn-lg px-4">Yes, Log Out</button>
+                <a asp-action="Index" asp-controller="Home" class="btn btn-secondary btn-lg px-4">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

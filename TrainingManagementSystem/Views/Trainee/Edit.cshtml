@@ -1,0 +1,101 @@
+﻿@model EditTraineeFormViewModel
+
+@{
+    ViewData["Title"] = "Edit Trainee";
+}
+
+<div class="container mt-5 d-flex justify-content-start">
+    <div class="col-sm-6">
+
+        <h2 class="fs-3 mb-4">
+            <i class="bi bi-pencil-square me-2"></i> @ViewData["Title"]
+        </h2>
+
+        <form asp-controller="Trainee" asp-action="Edit" method="post">
+
+            <!-- Hidden Id -->
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Name -->
+            <div class="mb-4 row">
+                <div class="col-md-8">
+                    <label asp-for="Name" class="form-label fw-bold"></label>
+                    <input asp-for="Name" type="text" class="form-control form-control-lg" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="mb-4 row">
+                <div class="col-md-8">
+                    <label asp-for="Address" class="form-label fw-bold"></label>
+                    <input asp-for="Address" type="text" class="form-control form-control-lg" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Grade -->
+            <!-- Grade -->
+            <div class="mb-4 row">
+                <div class="col-md-8">
+                    <label asp-for="Grade" class="form-label fw-bold"></label>
+                    <select asp-for="Grade" class="form-control form-control-lg">
+                        <option value="">Select Academic Year</option>
+                        <option value="1" selected="@(Model.Grade == 1)">1 - First Year</option>
+                        <option value="2" selected="@(Model.Grade == 2)">2 - Second Year</option>
+                        <option value="3" selected="@(Model.Grade == 3)">3 - Third Year</option>
+                        <option value="4" selected="@(Model.Grade == 4)">4 - Fourth Year</option>
+                        <option value="5" selected="@(Model.Grade == 5)">5 - Fifth Year</option>
+                        <option value="6" selected="@(Model.Grade == 6)">Graduate</option>
+                    </select>
+                    <span asp-validation-for="Grade" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Department Dropdown -->
+            <div class="mb-4 row">
+                <div class="col-md-8">
+                    <label asp-for="SelectedDepartment" class="form-label fw-bold"></label>
+                    <select asp-for="SelectedDepartment" asp-items="Model.Departments" class="form-control form-control-lg">
+                        <option value="">Select Department</option>
+                    </select>
+                    <span asp-validation-for="SelectedDepartment" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Courses Multi Select -->
+            <div class="mb-4">
+                <label asp-for="SelectedCourses" class="form-label fw-bold">Select Courses</label>
+                <select asp-for="SelectedCourses"
+                        asp-items="Model.Courses"
+                        class="form-control form-control-lg"
+                        multiple="multiple">
+                </select>
+                <small class="text-muted">Hold Ctrl (Windows) or Command (Mac) to select multiple courses.</small>
+                <span asp-validation-for="SelectedCourses" class="text-danger"></span>
+            </div>
+
+          
+         
+
+            <!-- Buttons -->
+            <div class="row">
+                <div class="col-md-8 d-flex gap-2">
+                    <a asp-action="Index" asp-controller="Trainee" class="btn btn-secondary btn-lg">
+                        <i class="bi bi-arrow-left-circle me-1"></i> Back
+                    </a>
+                    <button type="submit" class="btn btn-info btn-lg">
+                        <i class="bi bi-plus"></i> Save
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,83 @@
+﻿@model CreateCourseFormViewModel
+
+@{
+    ViewData["Title"] = "Add Course";
+    var nameValue = Model?.Name;
+    var hoursValue = Model?.Hours;
+    var degreeValue = Model?.Degree;
+    var minDegreeValue = Model?.MinDegree;
+    var deptIdValue = Model?.SelectedDepartment;
+}
+
+<div class="container mt-5 d-flex justify-content-start">
+    <div class="col-sm-6">
+
+        <h2 class="fs-3 mb-4">
+            <i class="bi bi-plus-circle me-2"></i> @ViewData["Title"]
+        </h2>
+
+        <form asp-controller="Course" asp-action="Create" method="post">
+
+            <!-- Name -->
+            <div class="mb-4">
+                <label asp-for="Name" class="form-label fw-bold"></label>
+                <input asp-for="Name" class="form-control form-control-lg"
+                       value="@(nameValue ?? "")" placeholder="@(nameValue == null ? "Course Name" : "")" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- Hours -->
+            <div class="mb-4">
+                <label asp-for="Hours" class="form-label fw-bold"></label>
+                <input asp-for="Hours" type="number" class="form-control form-control-lg"
+                       value="@(hoursValue.HasValue? hoursValue.Value.ToString() : "")"
+                       placeholder="@(hoursValue.HasValue ? "" : "Hours")" />
+                <span asp-validation-for="Hours" class="text-danger"></span>
+            </div>
+
+            <!-- Degree -->
+            <div class="mb-4">
+                <label asp-for="Degree" class="form-label fw-bold"></label>
+                <input asp-for="Degree" type="number" class="form-control form-control-lg"
+                       value="@(degreeValue.HasValue? degreeValue.Value.ToString() : "")"
+                       placeholder="@(degreeValue.HasValue ? "" : "Degree")" />
+                <span asp-validation-for="Degree" class="text-danger"></span>
+            </div>
+
+            <!-- Minimum Degree -->
+            <div class="mb-4">
+                <label asp-for="MinDegree" class="form-label fw-bold"></label>
+                <input asp-for="MinDegree" type="number" class="form-control form-control-lg"
+                       value="@(minDegreeValue.HasValue? minDegreeValue.Value.ToString() : "")"
+                       placeholder="@(minDegreeValue.HasValue ? "" : "Minimum Degree")" />
+                <span asp-validation-for="MinDegree" class="text-danger"></span>
+            </div>
+
+            <!-- Department Dropdown -->
+            <div class="mb-4">
+                <label asp-for="SelectedDepartment" class="form-label fw-bold"></label>
+                <select asp-for="SelectedDepartment" asp-items="Model.Departments" class="form-control form-control-lg">
+                    <option value="">Select Department</option>
+                </select>
+                <span asp-validation-for="SelectedDepartment" class="text-danger"></span>
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex gap-2">
+                <a asp-action="Index" asp-controller="Course" class="btn btn-secondary btn-lg">
+                    <i class="bi bi-arrow-left-circle me-1"></i> Back
+                </a>
+                <button type="submit" class="btn btn-info btn-lg">
+                    <i class="bi bi-plus"></i> Save
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,93 @@
+﻿
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9ff;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                line-height: 1.2;
+            }
+
+                .hero-text h1 span {
+                    color: #3b82f6;
+                }
+
+            .hero-text p {
+                font-size: 1rem;
+                color: #555;
+                margin-bottom: 2rem;
+            }
+
+            .hero-text .btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+
+        .btn-primary {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: #374151;
+        }
+
+        .hero-image img {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+        }
+
+       
+
+        .hero-text {
+            margin-top: 30px;
+        }
+
+            .hero-text .btn {
+                margin-bottom: 10px;
+            }
+
+        
+    </style>
+
+<div class="hero">
+    <div class="hero-text">
+        <h1>Welcome to <span>TrainHub</span>.<br>Learn anything.</h1>
+        <p>Enhance your skills with interactive courses and hands-on training sessions.</p>
+        <div class="auth-buttons" style="margin-top: 20px; display: flex; gap: 10px;">
+            <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Login</a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-secondary">Create Account</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

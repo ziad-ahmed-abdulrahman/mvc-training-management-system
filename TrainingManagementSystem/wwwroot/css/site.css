@@ -1,0 +1,116 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+/* =====  Add Button ===== */
+.my-add-button {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    border-radius: 8px;
+    padding: 8px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+    .my-add-button:hover {
+        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        color: #fff;
+    }
+
+
+
+/* ===== Table ===== */
+table.modern-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background-color: #e0f2fe; 
+}
+
+    /* ===== Header ===== */
+    table.modern-table th {
+        background: linear-gradient(90deg, #60a5fa, #3b82f6);
+        color: #fff;
+        font-weight: 600;
+        text-align: center;
+        padding: 10px;
+        border-right: 1px solid #93c5fd;
+    }
+
+        table.modern-table th:last-child {
+            border-right: none;
+        }
+
+        table.modern-table th:first-child {
+            border-top-left-radius: 10px;
+        }
+
+        table.modern-table th:last-child {
+            border-top-right-radius: 10px;
+        }
+
+    /* ===== Rows ===== */
+    table.modern-table tbody tr,
+    table.modern-table tbody tr td {
+        background-color: #ffffff;
+        color: #1e293b;
+        text-align: center;
+        padding: 8px;
+        border-right: 1px solid #dbeafe;
+    }
+
+        table.modern-table tbody tr td:last-child {
+            border-right: none;
+        }
+
+        table.modern-table tbody tr:nth-child(even) {
+            background-color: #dbeafe; 
+        }
+
+        table.modern-table tbody tr:hover {
+            background-color: #bfdbfe; 
+        }
+
+    /* ===== Borders ===== */
+    table.modern-table th, table.modern-table td {
+        border-bottom: 1px solid #93c5fd;
+        font-size: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    table.modern-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+
+    
+
