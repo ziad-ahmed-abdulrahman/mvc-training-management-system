@@ -16,4 +16,4 @@ A simple ASP.NET Core MVC project for managing training courses, departments, in
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/Ziad-AhmedX/MVC-Training-Management-System.git
+git clone https://github.com/Ziad-AhmedX/mvc-training-management-system.git
