@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #6a8cff, #9b7cff);
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
+    <div style="
+        background: rgba(0, 0, 0, 0.6);
+        padding: 40px 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        max-width: 400px;
+        width: 100%;
+    ">
+        <h1 style="font-size: 2.5rem; margin-bottom: 20px;">🚫 Access Denied</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">You do not have permission to view this page.</p>
+        <a asp-controller="Home" asp-action="Index" style="
+            display: inline-block;
+            background-color: #5b6cff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        " onmouseover="this.style.backgroundColor='#3a46c0'" onmouseout="this.style.backgroundColor='#5b6cff'">
+            Go Back Home
+        </a>
+    </div>
+</div>

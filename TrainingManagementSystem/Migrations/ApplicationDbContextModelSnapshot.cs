@@ -47,6 +47,14 @@ namespace TrainingManagementSystem.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "B74DDD14-6340-4840-95C2-DB12554843E5",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -134,6 +142,13 @@ namespace TrainingManagementSystem.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "A12DDD14-6340-4840-95C2-DB12554843E1",
+                            RoleId = "B74DDD14-6340-4840-95C2-DB12554843E5"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -184,6 +199,26 @@ namespace TrainingManagementSystem.Migrations
                     b.HasIndex("DeptId");
 
                     b.ToTable("Courses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Degree = 100,
+                            DeptId = 1,
+                            Hours = 0,
+                            MinDegree = 50,
+                            Name = "C# Basics"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Degree = 100,
+                            DeptId = 2,
+                            Hours = 0,
+                            MinDegree = 60,
+                            Name = "Advanced Math"
+                        });
                 });
 
             modelBuilder.Entity("TrainingManagementSystem.Models.CrsReslt", b =>
@@ -211,6 +246,26 @@ namespace TrainingManagementSystem.Migrations
                     b.HasIndex("CrsId");
 
                     b.ToTable("CrsReslts");
+
+                    b.HasData(
+                        new
+                        {
+                            TraineeId = 1,
+                            CrsId = 1,
+                            DateCompleted = new DateTime(2026, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Degree = 90,
+                            Id = 1,
+                            IsPassed = true
+                        },
+                        new
+                        {
+                            TraineeId = 2,
+                            CrsId = 2,
+                            DateCompleted = new DateTime(2026, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Degree = 85,
+                            Id = 2,
+                            IsPassed = true
+                        });
                 });
 
             modelBuilder.Entity("TrainingManagementSystem.Models.Department", b =>
@@ -234,6 +289,20 @@ namespace TrainingManagementSystem.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Departments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ManagerName = "Alice",
+                            Name = "Computer Science"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ManagerName = "Bob",
+                            Name = "Mathematics"
+                        });
                 });
 
             modelBuilder.Entity("TrainingManagementSystem.Models.Instructor", b =>
@@ -268,6 +337,26 @@ namespace TrainingManagementSystem.Migrations
                     b.HasIndex("DeptId");
 
                     b.ToTable("Instructors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "123 Main St",
+                            CourseId = 1,
+                            DeptId = 1,
+                            Name = "John Doe",
+                            Salary = 5000
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "456 Side Rd",
+                            CourseId = 2,
+                            DeptId = 2,
+                            Name = "Jane Smith",
+                            Salary = 5500
+                        });
                 });
 
             modelBuilder.Entity("TrainingManagementSystem.Models.Trainee", b =>
@@ -296,6 +385,24 @@ namespace TrainingManagementSystem.Migrations
                     b.HasIndex("DeptId");
 
                     b.ToTable("Trainees");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Cairo",
+                            DeptId = 1,
+                            Grade = 90,
+                            Name = "Ahmed Ali"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Alex",
+                            DeptId = 2,
+                            Grade = 85,
+                            Name = "Sara Mohamed"
+                        });
                 });
 
             modelBuilder.Entity("TrainingManagementSystem.Models.Users", b =>
@@ -364,6 +471,24 @@ namespace TrainingManagementSystem.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "A12DDD14-6340-4840-95C2-DB12554843E1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8da2a99a-086a-4bd0-b4a6-48e33621a283",
+                            Email = "admin@ziad.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@ZIAD.COM",
+                            NormalizedUserName = "ADMINZIAD",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPjL/QM3B67rI2gHCaDJYx6jkAXR2cwUVWeHvhfyrs6MJhqAHl/kfwXoyWl03V6U6Q==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "11f5ff5a-5b0c-4c77-8892-2ace5b96a307",
+                            TwoFactorEnabled = false,
+                            UserName = "AdminZiad"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

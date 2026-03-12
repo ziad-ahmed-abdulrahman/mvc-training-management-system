@@ -17,6 +17,10 @@ namespace TrainingManagementSystem.Controllers
         {
             return View();
         }
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
 
         public IActionResult Login()
         {
@@ -25,22 +29,24 @@ namespace TrainingManagementSystem.Controllers
 
 
         [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> Login(LoginviewModel model)
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                var user = await userManager.FindByEmailAsync(model.Email);
+                if (user != null)
+                {
+                    var result = await signInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, false);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
 
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Email or Password is incorrect");
-                    return View(model);
-                }
+                ModelState.AddModelError("", "Email or Password is incorrect");
             }
+
             return View(model);
         }
         [HttpGet]
@@ -51,6 +57,7 @@ namespace TrainingManagementSystem.Controllers
 
 
         [HttpPost]
+   
         public async Task<IActionResult> Register(Register registerModel)
         {
             if (ModelState.IsValid)
@@ -61,9 +68,12 @@ namespace TrainingManagementSystem.Controllers
                     Email = registerModel.Email,
                     UserName = registerModel.Email,
                 };
+
                 var result = await userManager.CreateAsync(users, registerModel.Password);
                 if (result.Succeeded)
                 {
+                    await userManager.AddToRoleAsync(users, "Admin");
+
                     return RedirectToAction("Login", "Account");
                 }
                 else
@@ -76,7 +86,6 @@ namespace TrainingManagementSystem.Controllers
                 }
             }
             return View(registerModel);
-
         }
         public IActionResult VerifyEmail()
         {

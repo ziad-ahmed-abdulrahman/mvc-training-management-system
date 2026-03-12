@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using TrainingManagementSystem.Data;
 using TrainingManagementSystem.Services.InstructorServices;
@@ -18,6 +19,9 @@ namespace TrainingManagementSystem
 
             builder.Services.AddDbContext<ApplicationDbContext>(options => {
                 options.UseSqlServer(connectionString);
+                options.ConfigureWarnings(warnings =>
+       warnings.Ignore(RelationalEventId.PendingModelChangesWarning)
+   );
             });
 
             builder.Services.AddIdentity<Users, IdentityRole>(options => {

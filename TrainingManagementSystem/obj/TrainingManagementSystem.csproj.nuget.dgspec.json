@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mohamed\\Desktop\\TrainingManagementSystem\\TrainingManagementSystem\\TrainingManagementSystem.csproj": {}
+    "C:\\Users\\mohamed\\Desktop\\testGrit\\mvc-training-management-system\\TrainingManagementSystem\\TrainingManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mohamed\\Desktop\\TrainingManagementSystem\\TrainingManagementSystem\\TrainingManagementSystem.csproj": {
+    "C:\\Users\\mohamed\\Desktop\\testGrit\\mvc-training-management-system\\TrainingManagementSystem\\TrainingManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mohamed\\Desktop\\TrainingManagementSystem\\TrainingManagementSystem\\TrainingManagementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\mohamed\\Desktop\\testGrit\\mvc-training-management-system\\TrainingManagementSystem\\TrainingManagementSystem.csproj",
         "projectName": "TrainingManagementSystem",
-        "projectPath": "C:\\Users\\mohamed\\Desktop\\TrainingManagementSystem\\TrainingManagementSystem\\TrainingManagementSystem.csproj",
+        "projectPath": "C:\\Users\\mohamed\\Desktop\\testGrit\\mvc-training-management-system\\TrainingManagementSystem\\TrainingManagementSystem.csproj",
         "packagesPath": "C:\\Users\\mohamed\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mohamed\\Desktop\\TrainingManagementSystem\\TrainingManagementSystem\\obj\\",
+        "outputPath": "C:\\Users\\mohamed\\Desktop\\testGrit\\mvc-training-management-system\\TrainingManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
