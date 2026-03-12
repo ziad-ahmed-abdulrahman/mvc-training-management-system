@@ -73,6 +73,16 @@ Once the database is updated, a pre-seeded Admin account is created automaticall
 
 ---
 
+### 0️⃣ Clone the Repository
+To get a local copy of this project, run the following command in your terminal:
+
+```bash
+git clone https://github.com/ziad-ahmed-abdulrahman/mvc-training-management-system.git
+```
+
+---
+
+
 ## 👨‍💻 Author
 
 **Ziad Ahmed** *Communication & Electronics Engineering Student | Backend Developer specializing in .NET*
